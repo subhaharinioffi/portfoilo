@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subhaharini — Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Subhaharini — Full Stack Developer. Java, Next.js, Bun.js. Hackathon champion, builder of real-world solutions." />
+  <meta name="keywords" content="Subhaharini, Full Stack Developer, Java, Next.js, Portfolio, Hackathon" />
+  <meta property="og:title" content="Subhaharini | Full Stack Developer" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- Side dot navigation -->
+<nav class="side-nav" aria-label="Section navigation">
+  <a class="side-dot" href="#home"         data-section="home"         title="Home"></a>
+  <a class="side-dot" href="#about"        data-section="about"        title="About"></a>
+  <a class="side-dot" href="#skills"       data-section="skills"       title="Skills"></a>
+  <a class="side-dot" href="#projects"     data-section="projects"     title="Projects"></a>
+  <a class="side-dot" href="#achievements" data-section="achievements" title="Achievements"></a>
+  <a class="side-dot" href="#experience"   data-section="experience"   title="Experience"></a>
+  <a class="side-dot" href="#contact"      data-section="contact"      title="Contact"></a>
+</nav>
+
+<!-- ░░░ NAVIGATION ░░░ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Primary Navigation">
+  <a href="#home" class="nav-logo" aria-label="Subhaharini Home">Subhaharini</a>
+  <ul class="nav-links">
+    <li><a href="#about"        id="nav-about">About</a></li>
+    <li><a href="#skills"       id="nav-skills">Skills</a></li>
+    <li><a href="#projects"     id="nav-projects">Projects</a></li>
+    <li><a href="#achievements" id="nav-achievements">Achievements</a></li>
+    <li><a href="#experience"   id="nav-experience">Experience</a></li>
+    <li><a href="#contact" class="nav-cta" id="nav-contact">Let's Connect</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="nav-mobile" id="nav-mobile" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+  <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu">✕</button>
+  <a href="#about"        class="mobile-link">About</a>
+  <a href="#skills"       class="mobile-link">Skills</a>
+  <a href="#projects"     class="mobile-link">Projects</a>
+  <a href="#achievements" class="mobile-link">Achievements</a>
+  <a href="#experience"   class="mobile-link">Experience</a>
+  <a href="#contact"      class="mobile-link">Contact</a>
+</div>
+
+<!-- ░░░ HERO (Unique: Soft Fade-In Overlay) ░░░ -->
+<section class="hero" id="home" aria-label="Hero section">
+  <div class="hero-mesh-bg" aria-hidden="true">
+    <div class="mesh-blob blob-1"></div>
+    <div class="mesh-blob blob-2"></div>
+    <div class="mesh-blob blob-3"></div>
+  </div>
+
+  <div class="hero-container">
+    <!-- LEFT: Text -->
+    <div class="hero-text">
+      <div class="hero-label">
+        <span class="live-dot"></span>
+        Open to Opportunities
+      </div>
+
+      <h1 class="hero-name">
+        <em>Subhaharini</em>
+      </h1>
+
+      <div class="hero-role-wrap">
+        <div class="hero-role-line"></div>
+        <span class="hero-role-text">Full Stack Developer</span>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary" id="hero-view-work">
+          ✦ View My Work
+        </a>
+        <!-- Creative Resume Download Button -->
+        <a href="resume.pdf" download="Subhaharini_Resume.pdf" class="btn btn-download" id="hero-resume">
+          <span class="btn-dl-text">
+            <svg class="svg-icon btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Claim Curriculum Vitae ✦
+          </span>
+        </a>
+        <a href="#contact" class="btn btn-secondary" id="hero-contact">
+          ✉ Let's Connect
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT: Large cover portrait -->
+    <div class="hero-photo-side">
+      <div class="hero-portrait-wrap">
+        <div class="hero-portrait-frame">
+          <div class="hero-portrait-inner">
+            <img
+              src="photo.jpg"
+              alt="Subhaharini — Full Stack Developer"
+              class="hero-photo"
+              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fdf5dc,#f5edd8)';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.parentElement.style.fontSize='8rem';this.parentElement.textContent='👩‍💻';"
+            />
+          </div>
+        </div>
+        <div class="portrait-glow" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ ABOUT (Unique Scroll: Slide-Split Reveal) ░░░ -->
+<section class="section-about" id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Slides in from left -->
+      <div class="about-image-wrap split-left">
+        <div class="about-img-outer">
+          <div class="about-img-card">
+            <img
+              src="photo2.jpg.jpg"
+              alt="Subhaharini"
+              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fdf5dc,#f5edd8)';"
+            />
+            <div class="about-img-overlay"></div>
+          </div>
+        </div>
+        <div class="about-corner-accent" aria-hidden="true"></div>
+      </div>
+
+      <!-- Slides in from right -->
+      <div class="about-content split-right">
+        <p class="about-bio">
+          I'm Subhaharini, an innovative and result-driven software developer pursuing B.Sc. Computer Technology at Rathinam Group of Institutions (2024–2027). I'm passionate about building scalable, real-world solutions and actively involved in the design phase, with a keen interest in UI/UX and creating user-centric experiences. Driven by a deep passion for Java, web development, and creative designing, I bring precision and detail to every system I architect, software I build, and video I color grade.
+        </p>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-image-wrap">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+              </svg>
+            </div>
+            <div class="highlight-text">
+              <strong>8.12 CGPA</strong>
+              <span>B.Sc. Computer Technology</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-image-wrap">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 16.5c-1.5 1.26-2 2.76-2 3.5.74 0 2.24-.5 3.5-2"></path>
+                <path d="M22 2c-3 0-8.5 2.5-11.5 5.5S7 13 7 16c0 1.5 1.5 3 3 3 3 0 7.5-2 10.5-5S22 5 22 2z"></path>
+                <line x1="9" y1="15" x2="12" y2="18"></line>
+                <line x1="17" y1="7" x2="17.01" y2="7"></line>
+              </svg>
+            </div>
+            <div class="highlight-text">
+              <strong>2 Live Projects</strong>
+              <span>Zentix &amp; SkipQ</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-image-wrap">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                <line x1="6" y1="1" x2="6" y2="4"></line>
+                <line x1="10" y1="1" x2="10" y2="4"></line>
+                <line x1="14" y1="1" x2="14" y2="4"></line>
+              </svg>
+            </div>
+            <div class="highlight-text">
+              <strong>Oracle Certified</strong>
+              <span>Java Foundations 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-buttons">
+          <a href="https://github.com/subhaharinioffi" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="about-github">🐙 GitHub</a>
+          <a href="https://www.linkedin.com/in/subha-hariniofficial" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="about-linkedin">💼 LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ SKILLS (Unique Scroll: Floating Card Fan-Out) ░░░ -->
+<section class="section-skills" id="skills" aria-labelledby="skills-heading">
+  <div class="container">
+    <div class="section-header reveal-header">
+      <div class="section-tag">✦ Tech Stack</div>
+      <h2 class="section-title" id="skills-heading">Skills &amp; <span>Technologies</span></h2>
+      <p class="section-subtitle">A versatile toolkit spanning frontend, backend, database, and creative tools.</p>
+      <div class="section-ornament"><div class="ornament-diamond"></div></div>
+    </div>
+
+    <!-- Cards fan out on reveal -->
+    <div class="skills-grid fan-container">
+      <div class="skill-category fan-card card-1">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <span class="skill-cat-name">Languages</span>
+        </div>
+        <div class="skill-chips" role="list">
+          <span class="skill-chip">Java</span><span class="skill-chip">C</span>
+          <span class="skill-chip warm">HTML</span><span class="skill-chip warm">CSS</span>
+          <span class="skill-chip warm">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="skill-category fan-card card-2">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <span class="skill-cat-name">Frameworks &amp; Backend</span>
+        </div>
+        <div class="skill-chips" role="list">
+          <span class="skill-chip warm">Next.js</span><span class="skill-chip">Bun.js</span>
+          <span class="skill-chip">Elysia.js</span><span class="skill-chip warm">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="skill-category fan-card card-3">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+          </div>
+          <span class="skill-cat-name">Tools &amp; Software</span>
+        </div>
+        <div class="skill-chips" role="list">
+          <span class="skill-chip warm">DaVinci Resolve</span>
+          <span class="skill-chip">Git &amp; GitHub</span>
+          <span class="skill-chip warm">VS Code</span>
+        </div>
+      </div>
+
+      <div class="skill-category fan-card card-4">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <span class="skill-cat-name">Soft Skills</span>
+        </div>
+        <div class="skill-chips" role="list">
+          <span class="skill-chip warm">Problem Solving</span><span class="skill-chip">Leadership</span>
+          <span class="skill-chip warm">Communication</span><span class="skill-chip">UI/UX Thinking</span>
+        </div>
+      </div>
+
+      <div class="skill-category fan-card card-5">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="7"></circle>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+            </svg>
+          </div>
+          <span class="skill-cat-name">Certifications</span>
+        </div>
+        <div class="skill-chips" role="list">
+          <span class="skill-chip warm">Oracle Java Foundations</span>
+        </div>
+      </div>
+
+      <div class="skill-category fan-card card-6">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+            </svg>
+          </div>
+          <span class="skill-cat-name">Currently Exploring</span>
+        </div>
+        <div class="skill-chips" role="list">
+          <span class="skill-chip warm">AI/ML Basics</span>
+          <span class="skill-chip">System Design</span>
+          <span class="skill-chip warm">Responsive UI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ PROJECTS (Unique Scroll: Center-Expansion Zoom) ░░░ -->
+<section class="section-projects" id="projects" aria-labelledby="projects-heading">
+  <div class="container">
+    <div class="section-header reveal-header">
+      <div class="section-tag">✦ Portfolio</div>
+      <h2 class="section-title" id="projects-heading">Featured <span>Projects</span></h2>
+      <p class="section-subtitle">Real-world solutions designed for impact, scalability, and elegance.</p>
+      <div class="section-ornament"><div class="ornament-diamond"></div></div>
+    </div>
+
+    <!-- Cards expand and focus on reveal -->
+    <div class="projects-grid zoom-container">
+      <article class="project-card zoom-card card-left">
+        <div class="project-number">01 / 02</div>
+        <div class="project-icon-wrap">
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <h3 class="project-title">Zentix</h3>
+        <p class="project-subtitle">// Smart Campus Management System</p>
+        <p class="project-description">Built a real-time campus navigation &amp; resource tracking system. Streamlines campus operations and improves spatial awareness for staff and students.</p>
+        <div class="project-tags">
+          <span class="project-tag">Full Stack</span><span class="project-tag">Real-time</span>
+          <span class="project-tag">Campus Navigation</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/subhaharinioffi" target="_blank" rel="noopener noreferrer" class="project-link" id="zentix-github">🐙 Codebase</a>
+        </div>
+      </article>
+
+      <article class="project-card zoom-card card-right">
+        <div class="project-number">02 / 02</div>
+        <div class="project-icon-wrap">
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <h3 class="project-title">SkipQ</h3>
+        <p class="project-subtitle">// Smart Queue Management System</p>
+        <p class="project-description">Developed a scalable queue management system that achieved a <strong>35% reduction in wait times</strong> using a modern, fast web stack.</p>
+        <div class="project-tags">
+          <span class="project-tag">Web App</span><span class="project-tag">Optimization</span>
+          <span class="project-tag">Scalable Stack</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/subhaharinioffi" target="_blank" rel="noopener noreferrer" class="project-link" id="skipq-github">🐙 Codebase</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ ACHIEVEMENTS (Unique Scroll: Gravity/Staggered Bounce Rise) ░░░ -->
+<section class="section-achievements" id="achievements" aria-labelledby="achievements-heading">
+  <div class="container">
+    <div class="section-header reveal-header">
+      <div class="section-tag">✦ Hall of Fame</div>
+      <h2 class="section-title" id="achievements-heading">Awards &amp; <span>Achievements</span></h2>
+      <p class="section-subtitle">Recognized across state and college-level competitions for innovation and leadership.</p>
+      <div class="section-ornament"><div class="ornament-diamond"></div></div>
+    </div>
+
+    <!-- Cards bounce up staggered -->
+    <div class="achievements-featured bounce-container">
+      <article class="achievement-card bounce-card card-1">
+        <div class="achievement-medal-wrap">
+          <svg class="svg-icon animate-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+            <path d="M4 22h16"></path>
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path>
+            <path d="M12 2a7 7 0 0 0-7 7c0 2.65 1.5 4.5 3 5h8c1.5-.5 3-2.35 3-5a7 7 0 0 0-7-7z"></path>
+          </svg>
+        </div>
+        <h3 class="achievement-title">Special Prize</h3>
+        <p class="achievement-event">TN-IMPACT 2026</p>
+        <p class="achievement-org">Industrial Hackathon — State Level</p>
+      </article>
+
+      <article class="achievement-card bounce-card card-2">
+        <div class="achievement-medal-wrap">
+          <svg class="svg-icon animate-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <h3 class="achievement-title">Viral Visionary Award</h3>
+        <p class="achievement-event">Queenathon</p>
+        <p class="achievement-org">Dhaanish iTech College</p>
+      </article>
+
+      <article class="achievement-card bounce-card card-3">
+        <div class="achievement-medal-wrap">
+          <svg class="svg-icon animate-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+            <path d="M4 22h16"></path>
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path>
+            <path d="M12 2a7 7 0 0 0-7 7c0 2.65 1.5 4.5 3 5h8c1.5-.5 3-2.35 3-5a7 7 0 0 0-7-7z"></path>
+          </svg>
+        </div>
+        <h3 class="achievement-title">Winner</h3>
+        <p class="achievement-event">AlgoRhythm '26</p>
+        <p class="achievement-org">KPR College of Arts and Science</p>
+      </article>
+
+      <article class="achievement-card bounce-card card-4">
+        <div class="achievement-medal-wrap">
+          <svg class="svg-icon animate-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+            <path d="M4 22h16"></path>
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path>
+            <path d="M12 2a7 7 0 0 0-7 7c0 2.65 1.5 4.5 3 5h8c1.5-.5 3-2.35 3-5a7 7 0 0 0-7-7z"></path>
+          </svg>
+        </div>
+        <h3 class="achievement-title">Winner</h3>
+        <p class="achievement-event">Ideathon</p>
+        <p class="achievement-org">SNS College of Technology</p>
+      </article>
+    </div>
+
+    <div class="achievements-list bounce-list">
+      <div class="achievement-list-item item-1">
+        <svg class="svg-icon inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+          <path d="M4 22h16"></path>
+          <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path>
+          <path d="M12 2a7 7 0 0 0-7 7c0 2.65 1.5 4.5 3 5h8c1.5-.5 3-2.35 3-5a7 7 0 0 0-7-7z"></path>
+        </svg>
+        <div class="text"><strong>Winner — AI Blitz</strong>SNS College of Technology</div>
+      </div>
+      <div class="achievement-list-item item-2">
+        <svg class="svg-icon inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+          <path d="M4 22h16"></path>
+          <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path>
+          <path d="M12 2a7 7 0 0 0-7 7c0 2.65 1.5 4.5 3 5h8c1.5-.5 3-2.35 3-5a7 7 0 0 0-7-7z"></path>
+        </svg>
+        <div class="text"><strong>Winner — Spyder '26</strong>Hindustan College of Arts &amp; Science</div>
+      </div>
+      <div class="achievement-list-item item-3">
+        <svg class="svg-icon inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+          <path d="M4 22h16"></path>
+          <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path>
+          <path d="M12 2a7 7 0 0 0-7 7c0 2.65 1.5 4.5 3 5h8c1.5-.5 3-2.35 3-5a7 7 0 0 0-7-7z"></path>
+        </svg>
+        <div class="text"><strong>Winner — Best Manager</strong>Hindustan College of Arts &amp; Science</div>
+      </div>
+      <div class="achievement-list-item item-4">
+        <svg class="svg-icon inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+          <path d="M4 22h16"></path>
+          <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path>
+          <path d="M12 2a7 7 0 0 0-7 7c0 2.65 1.5 4.5 3 5h8c1.5-.5 3-2.35 3-5a7 7 0 0 0-7-7z"></path>
+        </svg>
+        <div class="text"><strong>Winner — Minute Blaze</strong>Kovai Kalaimagal College</div>
+      </div>
+      <div class="achievement-list-item item-5">
+        <svg class="svg-icon inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+          <path d="M4 22h16"></path>
+          <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path>
+          <path d="M12 2a7 7 0 0 0-7 7c0 2.65 1.5 4.5 3 5h8c1.5-.5 3-2.35 3-5a7 7 0 0 0-7-7z"></path>
+        </svg>
+        <div class="text"><strong>3rd Place — Biz Master</strong>Hindustan College of Arts &amp; Science</div>
+      </div>
+      <div class="achievement-list-item item-6">
+        <svg class="svg-icon inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <div class="text"><strong>Participant — Onest Hackathon</strong>AIC Raise</div>
+      </div>
+      <div class="achievement-list-item item-7">
+        <svg class="svg-icon inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <div class="text"><strong>Participant — Hackasthra</strong>SNS College of Technology</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ EXPERIENCE (Unique Scroll: Line Growth & Alternating Timeline Slide) ░░░ -->
+<section class="section-experience" id="experience" aria-labelledby="experience-heading">
+  <div class="container">
+    <div class="section-header reveal-header">
+      <div class="section-tag">✦ Journey</div>
+      <h2 class="section-title" id="experience-heading">Experience &amp; <span>Education</span></h2>
+      <p class="section-subtitle">Building expertise through hands-on work and continuous learning.</p>
+      <div class="section-ornament"><div class="ornament-diamond"></div></div>
+    </div>
+
+    <div class="experience-grid timeline-container">
+      <!-- Growing vertical line -->
+      <div class="timeline-growth-line" id="timeline-line"></div>
+
+      <div class="timeline-col">
+        <div class="exp-section-label">Work Experience</div>
+        <div class="timeline">
+          <!-- Slides from left -->
+          <div class="timeline-item slide-left-item">
+            <div class="timeline-dot">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                <line x1="7" y1="2" x2="7" y2="22"></line>
+                <line x1="17" y1="2" x2="17" y2="22"></line>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <line x1="2" y1="7" x2="7" y2="7"></line>
+                <line x1="2" y1="17" x2="7" y2="17"></line>
+                <line x1="17" y1="17" x2="22" y2="17"></line>
+                <line x1="17" y1="7" x2="22" y2="7"></line>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">2025</div>
+              <h4 class="timeline-title">Video Editing Intern</h4>
+              <div class="timeline-org">D Square Entertainers</div>
+              <p class="timeline-desc">Worked on professional video editing and color grading using DaVinci Resolve — hands-on experience in post-production workflows and visual storytelling.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-section-label" style="margin-top:2.5rem;">Education</div>
+        <div class="timeline">
+          <!-- Slides from right -->
+          <div class="timeline-item slide-right-item">
+            <div class="timeline-dot">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">2024 – 2027</div>
+              <h4 class="timeline-title">B.Sc. Computer Technology</h4>
+              <div class="timeline-org">Rathinam Group of Institutions</div>
+              <p class="timeline-desc">Pursuing degree with an academic record of <strong>8.12 CGPA</strong>.</p>
+            </div>
+          </div>
+
+          <!-- Slides from left -->
+          <div class="timeline-item slide-left-item">
+            <div class="timeline-dot">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">Secondary Education</div>
+              <h4 class="timeline-title">HSC &amp; SSLC</h4>
+              <div class="timeline-org">Corporation Girls Higher Secondary School</div>
+              <p class="timeline-desc">Completed HSC with <strong>64.3%</strong> and SSLC with <strong>88.4%</strong>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-side-cards">
+        <div class="exp-section-label">Certifications</div>
+        <div class="cert-grid">
+          <div class="cert-card slide-right-item">
+            <div class="cert-icon">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                <line x1="6" y1="1" x2="6" y2="4"></line>
+                <line x1="10" y1="1" x2="10" y2="4"></line>
+                <line x1="14" y1="1" x2="14" y2="4"></line>
+              </svg>
+            </div>
+            <div>
+              <div class="cert-name">Oracle Java Foundations</div>
+              <div class="cert-issuer">Oracle — 2026</div>
+            </div>
+          </div>
+          <div class="cert-card slide-right-item">
+            <div class="cert-icon">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 16.5c-1.5 1.26-2 2.76-2 3.5.74 0 2.24-.5 3.5-2"></path>
+                <path d="M22 2c-3 0-8.5 2.5-11.5 5.5S7 13 7 16c0 1.5 1.5 3 3 3 3 0 7.5-2 10.5-5S22 5 22 2z"></path>
+                <line x1="9" y1="15" x2="12" y2="18"></line>
+                <line x1="17" y1="7" x2="17.01" y2="7"></line>
+              </svg>
+            </div>
+            <div>
+              <div class="cert-name">More Coming Soon</div>
+              <div class="cert-issuer">Always Learning…</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fun-facts-card slide-left-item">
+          <div class="fun-fact-item">
+            <svg class="svg-icon inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span>Passionate about UI/UX design &amp; creative interfaces</span>
+          </div>
+          <div class="fun-fact-item">
+            <svg class="svg-icon inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+              <line x1="7" y1="2" x2="7" y2="22"></line>
+              <line x1="17" y1="2" x2="17" y2="22"></line>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <line x1="2" y1="7" x2="7" y2="7"></line>
+              <line x1="2" y1="17" x2="7" y2="17"></line>
+              <line x1="17" y1="17" x2="22" y2="17"></line>
+              <line x1="17" y1="7" x2="22" y2="7"></line>
+            </svg>
+            <span>Professionally trained in video color grading with DaVinci Resolve</span>
+          </div>
+          <div class="fun-fact-item">
+            <svg class="svg-icon inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+              <path d="M4 22h16"></path>
+              <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path>
+              <path d="M12 2a7 7 0 0 0-7 7c0 2.65 1.5 4.5 3 5h8c1.5-.5 3-2.35 3-5a7 7 0 0 0-7-7z"></path>
+            </svg>
+            <span>Active hackathon competitor &amp; experienced team leader</span>
+          </div>
+          <div class="fun-fact-item">
+            <svg class="svg-icon inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4.5 16.5c-1.5 1.26-2 2.76-2 3.5.74 0 2.24-.5 3.5-2"></path>
+              <path d="M22 2c-3 0-8.5 2.5-11.5 5.5S7 13 7 16c0 1.5 1.5 3 3 3 3 0 7.5-2 10.5-5S22 5 22 2z"></path>
+              <line x1="9" y1="15" x2="12" y2="18"></line>
+              <line x1="17" y1="7" x2="17.01" y2="7"></line>
+            </svg>
+            <span>Committed to driving measurable impact through modern software</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ CONTACT (Unique Scroll: Envelope-Style Flip Open) ░░░ -->
+<section class="section-contact contact-section" id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="section-header reveal-header">
+      <div class="section-tag">✦ Let's Connect</div>
+      <h2 class="section-title" id="contact-heading">Let's <span>Talk</span></h2>
+      <div class="section-ornament"><div class="ornament-diamond"></div></div>
+    </div>
+
+    <!-- Letter unfolds inside here -->
+    <div class="contact-inner envelope-container">
+      <div class="contact-card envelope-card">
+        <div class="envelope-top-flap"></div>
+        <div class="envelope-letter">
+          <h3 class="contact-heading">
+            <svg class="svg-icon animate-envelope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            Open to Opportunities ✦
+          </h3>
+          <p class="contact-subtext">
+            Innovative and result-driven software developer ready to contribute to dynamic teams. 
+            Whether you want to discuss system design, collaborate on a hackathon, or talk video color grading — let's connect!
+          </p>
+          <div class="contact-links">
+            <a href="mailto:subhahariniofficial@gmail.com" class="contact-link email" id="contact-email">
+              ✉️ Email Me
+            </a>
+            <a href="https://github.com/subhaharinioffi" target="_blank" rel="noopener noreferrer" class="contact-link github" id="contact-github">
+              🐙 GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/subha-hariniofficial" target="_blank" rel="noopener noreferrer" class="contact-link linkedin" id="contact-linkedin">
+              💼 LinkedIn
+            </a>
+            <a href="tel:9787724203" class="contact-link phone" id="contact-phone">
+              📞 +91 97877 24203
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 <span>Subhaharini</span> — All Rights Reserved</div>
+        <div class="footer-made">Crafted with <span class="heart">♥</span> &amp; ☕</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
