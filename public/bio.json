@@ -1,0 +1,108 @@
+{
+  "developer": {
+    "name": "Subhaharini",
+    "title": "Full Stack Java & Web Developer",
+    "location": {
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "country": "India"
+    },
+    "education": {
+      "degree": "B.Sc. Computer Technology",
+      "institution": "Rathinam Group of Institutions",
+      "duration": "2024 - 2027",
+      "cgpa": "8.12"
+    },
+    "certifications": [
+      {
+        "title": "Oracle Java Foundations",
+        "issuer": "Oracle",
+        "year": "2026"
+      }
+    ],
+    "skills": {
+      "languages": ["Java", "C", "HTML", "CSS", "JavaScript"],
+      "backend_frameworks": ["Next.js", "Bun.js", "Elysia.js", "PostgreSQL"],
+      "tools_software": ["DaVinci Resolve", "Git", "GitHub", "VS Code"],
+      "soft_skills": ["Problem Solving", "Leadership", "Communication", "Quick Learner"],
+      "exploring": ["UI/UX", "Data Structures and Algorithms (DSA)"]
+    },
+    "projects": [
+      {
+        "name": "Zentix",
+        "description": "Smart Campus Management & Resource Tracking System featuring real-time telemetry mapping and route calculation.",
+        "metrics": {
+          "location_precision": "99.8%",
+          "latency": "<200ms"
+        },
+        "tags": ["Full Stack", "Java", "Next.js", "Real-time"],
+        "url": "https://github.com/subhaharinioffi/portfoilo"
+      },
+      {
+        "name": "SkipQ",
+        "description": "Scalable queue management system designed to optimize retail and institutional customer queue logic.",
+        "metrics": {
+          "wait_time_reduction": "35%",
+          "concurrency": "500+ parallel requests"
+        },
+        "tags": ["Web App", "Optimization", "Scalable Stack", "High Concurrency"],
+        "url": "https://github.com/subhaharinioffi/portfoilo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "TN-IMPACT 2026",
+        "role": "Special Prize Winner",
+        "level": "State Level Industrial Hackathon"
+      },
+      {
+        "title": "AlgoRhythm '26",
+        "role": "Winner",
+        "level": "College coding speed-run"
+      },
+      {
+        "title": "Best Manager",
+        "role": "Winner",
+        "level": "Hindustan College Management Simulation"
+      },
+      {
+        "title": "Queenathon",
+        "role": "Viral Visionary",
+        "level": "Dhaanish iTech College contest"
+      },
+      {
+        "title": "Spyder '26",
+        "role": "Winner",
+        "level": "Web design coding competition"
+      },
+      {
+        "title": "Minute Blaze",
+        "role": "Winner",
+        "level": "Quick coding tournament"
+      },
+      {
+        "title": "Biz Master",
+        "role": "3rd Place",
+        "level": "Business analytics case study"
+      }
+    ],
+    "experience": [
+      {
+        "role": "Video Editing Intern",
+        "company": "D Square Entertainers",
+        "year": "2025",
+        "responsibilities": [
+          "Professional post-production workflows and video timeline editing",
+          "Color grading and correction using DaVinci Resolve"
+        ]
+      }
+    ],
+    "contact": {
+      "email": "subhahariniofficial@gmail.com",
+      "phone": "+91 97877 24203",
+      "github": "https://github.com/subhaharinioffi",
+      "linkedin": "https://www.linkedin.com/in/subha-hariniofficial",
+      "portfolio": "https://subhaharinioffi.github.io/portfoilo/"
+    }
+  }
+}
