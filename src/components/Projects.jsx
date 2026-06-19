@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Navigation, Users } from "lucide-react";
+import * as Icons from "lucide-react";
 
 // Inline SVG component to resolve Github casing imports from older/newer lucide-react versions
 const Github = ({ className, ...props }) => (
@@ -24,13 +24,21 @@ const Github = ({ className, ...props }) => (
   </svg>
 );
 
-function ProjectCard({ project, preset, index }) {
+const getProjectIcon = (name) => {
+  const norm = name.toLowerCase();
+  if (norm.includes("bloom")) return Icons.Activity || Icons.Heart;
+  if (norm.includes("zentix") || norm.includes("nav")) return Icons.Navigation;
+  return Icons.Users;
+};
+
+function ProjectCard({ project, preset, index, total }) {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e) => {
+    if (preset !== "meta" && preset !== "microsoft") return;
     const card = e.currentTarget;
     const box = card.getBoundingClientRect();
     const x = e.clientX - box.left;
@@ -39,7 +47,7 @@ function ProjectCard({ project, preset, index }) {
     setSpotlight({ x, y });
 
     if (preset === "meta") {
-      const rx = -(y - box.height / 2) / (box.height / 20); // max 10 deg
+      const rx = -(y - box.height / 2) / (box.height / 20);
       const ry = (x - box.width / 2) / (box.width / 20);
       setRotateX(rx);
       setRotateY(ry);
@@ -52,7 +60,7 @@ function ProjectCard({ project, preset, index }) {
     setRotateY(0);
   };
 
-  const Icon = project.icon;
+  const Icon = getProjectIcon(project.name);
   const isGoogle = preset === "google";
 
   const cardVariants = {
@@ -69,15 +77,38 @@ function ProjectCard({ project, preset, index }) {
     }
   };
 
+  // Alternating background pattern styles
+  const bgStyle = index % 3 === 0
+    ? {
+        backgroundImage: `radial-gradient(circle at 20% 30%, rgba(179,138,43,0.07), transparent 50%), 
+           radial-gradient(circle at 80% 80%, rgba(179,138,43,0.04), transparent 50%),
+           linear-gradient(var(--border-soft) 1px, transparent 1px),
+           linear-gradient(90deg, var(--border-soft) 1px, transparent 1px)`,
+        backgroundSize: "100% 100%, 100% 100%, 28px 28px, 28px 28px"
+      }
+    : index % 3 === 1
+    ? {
+        backgroundImage: `radial-gradient(circle at 80% 20%, rgba(179,138,43,0.07), transparent 50%),
+           radial-gradient(circle at 20% 80%, rgba(179,138,43,0.04), transparent 50%),
+           repeating-linear-gradient(45deg, var(--border-soft) 0px, var(--border-soft) 1px, transparent 1px, transparent 12px)`,
+        backgroundSize: "100% 100%, 100% 100%, 24px 24px"
+      }
+    : {
+        backgroundImage: `radial-gradient(circle at 50% 50%, rgba(179,138,43,0.08), transparent 60%),
+           linear-gradient(135deg, var(--border-soft) 0.5px, transparent 0.5px)`,
+        backgroundSize: "100% 100%, 18px 18px"
+      };
+
   return (
     <motion.article
       variants={cardVariants}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={() => setIsHovered(true)}
-      className="relative rounded-3xl p-8 border border-border-soft dark:border-border-theme/40 bg-cover bg-center overflow-hidden z-10 transition-all duration-300 min-h-[380px] flex flex-col justify-between cursor-pointer"
+      className="relative rounded-3xl p-8 border border-border-soft dark:border-border-theme/40 overflow-hidden z-10 transition-all duration-300 min-h-[380px] flex flex-col justify-between cursor-pointer"
       style={{
-        backgroundImage: `url(${project.bg})`,
+        ...bgStyle,
+        backgroundColor: "var(--bg-card)",
         transformStyle: "preserve-3d",
         transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
         transition: isHovered ? "none" : "transform 0.4s ease, box-shadow 0.3s ease, border-color 0.3s ease"
@@ -107,7 +138,7 @@ function ProjectCard({ project, preset, index }) {
       <div className="relative z-10">
         <div className="flex justify-between items-center mb-6">
           <div className="text-[0.7rem] font-mono font-medium text-light-text tracking-wider">
-            {project.num}
+            {`0${index + 1} / 0${total}`}
           </div>
           <div className="w-11 h-11 rounded-xl bg-champagne dark:bg-gold-pale/10 flex items-center justify-center border border-border-soft dark:border-border-theme/20">
             <Icon className="w-5 h-5 text-gold-mid" />
@@ -115,10 +146,10 @@ function ProjectCard({ project, preset, index }) {
         </div>
 
         <h3 className="font-display text-2xl font-extrabold text-espresso tracking-tight mb-1">
-          {project.title}
+          {project.name}
         </h3>
         <div className="text-[0.7rem] font-mono text-gold-deep dark:text-gold-bright font-bold uppercase tracking-wider mb-4">
-          {project.subtitle}
+          // {project.category}
         </div>
         <p className="text-sm leading-relaxed text-mid-text mb-6">
           {project.desc}
@@ -128,26 +159,26 @@ function ProjectCard({ project, preset, index }) {
       {/* Footer Tags & Links */}
       <div className="relative z-10 mt-auto">
         <div className="flex flex-wrap gap-2 mb-6">
-          {project.tags.map((tag, idx) => (
+          {project.metrics.map((metric, idx) => (
             <span 
               key={idx}
               className="text-[0.68rem] font-bold px-3 py-1 bg-gold-cream border border-border-gold/30 text-gold-deep rounded-full dark:bg-gold-pale/10 dark:text-gold-bright"
             >
-              {tag}
+              {metric}
             </span>
           ))}
         </div>
 
         <div className="flex">
           <a 
-            href={project.link} 
+            href={project.github} 
             target="_blank" 
             rel="noopener noreferrer"
-            aria-label={`View the source code for ${project.title} on GitHub`}
+            aria-label={`View the source code for ${project.name} on GitHub`}
             className="inline-flex items-center gap-2 text-xs font-bold text-gold-deep dark:text-gold-bright hover:text-espresso dark:hover:text-bg bg-gold-cream/60 border border-border-gold/30 hover:border-gold hover:bg-gradient-to-r hover:from-gold hover:to-gold-bright px-4 py-2 rounded-xl transition-all shadow-xs"
           >
             <Github className="w-4 h-4" />
-            🐙 Codebase
+            Codebase
           </a>
         </div>
       </div>
@@ -155,29 +186,8 @@ function ProjectCard({ project, preset, index }) {
   );
 }
 
-export default function Projects({ preset }) {
-  const projects = [
-    {
-      num: "01 / 02",
-      title: "Zentix",
-      subtitle: "// Smart Campus Management System",
-      desc: "Architected a real-time smart campus navigation & resource tracking system. Streamlines campus-wide logistics with 99.8% location precision and sub-200ms route calculation performance.",
-      tags: ["Full Stack", "99.8% Precision", "Java & Next.js", "Campus Navigation"],
-      icon: Navigation,
-      bg: "/assets/zentix_bg.png",
-      link: "https://github.com/subhaharinioffi/portfoilo"
-    },
-    {
-      num: "02 / 02",
-      title: "SkipQ",
-      subtitle: "// Smart Queue Management System",
-      desc: "Developed a high-concurrency smart queue management system. Achieved a verified 35% reduction in customer wait times and handled 500+ parallel simulated requests with zero downtime.",
-      tags: ["Web App", "35% Delay Cut", "Scalable Stack", "Queue Optimization"],
-      icon: Users,
-      bg: "/assets/skipq_bg.png",
-      link: "https://github.com/subhaharinioffi/portfoilo"
-    }
-  ];
+export default function Projects({ preset, data }) {
+  const projects = data?.items || [];
 
   return (
     <section 
@@ -188,7 +198,7 @@ export default function Projects({ preset }) {
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-1.5 bg-gold-cream dark:bg-gold-pale/10 border border-border-gold/30 text-gold-deep dark:text-gold-bright px-3.5 py-1 rounded-full text-[0.7rem] font-bold uppercase tracking-widest mb-4">
-            ✦ Portfolio
+            Portfolio
           </div>
           <h2 className="font-display text-3xl md:text-5xl font-black text-espresso">
             Featured <span className="font-serif italic font-medium text-gold">Projects</span>
@@ -213,6 +223,7 @@ export default function Projects({ preset }) {
               index={i}
               project={proj}
               preset={preset}
+              total={projects.length}
             />
           ))}
         </motion.div>

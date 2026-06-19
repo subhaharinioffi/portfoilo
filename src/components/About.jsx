@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Award, GraduationCap, Link as LinkIcon } from "lucide-react";
 
-// Inline SVG components to resolve brand icon imports from older/newer lucide-react versions
 const Github = ({ className, ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -72,28 +71,7 @@ function FAQItem({ question, answer }) {
   );
 }
 
-export default function About() {
-  const [sliderPos, setSliderPos] = useState(50);
-  const containerRef = useRef(null);
-
-  const handleMove = (clientX) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-    setSliderPos(percentage);
-  };
-
-  const handleMouseMove = (e) => {
-    handleMove(e.clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    if (e.touches[0]) {
-      handleMove(e.touches[0].clientX);
-    }
-  };
-
+export default function About({ preset, data }) {
   const highlights = [
     { 
       icon: GraduationCap, 
@@ -102,8 +80,8 @@ export default function About() {
     },
     { 
       icon: LinkIcon, 
-      title: "2 Live Projects", 
-      desc: "Zentix & SkipQ Systems" 
+      title: "3 Live Projects", 
+      desc: "SheBloom, Zentix & SkipQ" 
     },
     { 
       icon: Award, 
@@ -120,78 +98,39 @@ export default function About() {
       <div className="max-w-[1140px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-16 items-center">
           
-          {/* Left Column: Color Grading Slider & Image */}
+          {/* Left Column: 3D Portrait Card Frame */}
           <div className="flex flex-col gap-4">
             <h4 className="text-[0.7rem] font-bold uppercase tracking-widest text-gold-deep dark:text-gold-bright font-display text-center lg:text-left">
-              ✦ Video Editing & Post Production
+              {data?.subheading || "Systems Builder & Developer"}
             </h4>
             <h3 className="font-display text-xl font-extrabold text-espresso tracking-tight text-center lg:text-left mb-2">
-              DaVinci Resolve <span className="font-serif italic font-medium text-gold">Color Grading</span>
+              Engineering <span className="font-serif italic font-medium text-gold">{data?.title || "Clean Interfaces"}</span>
             </h3>
 
-            {/* Slider Container */}
+            {/* Photo Card Frame with 3D Tilt and Spotlight */}
             <div 
-              ref={containerRef}
-              onMouseMove={handleMouseMove}
-              onTouchMove={handleTouchMove}
-              className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-border-gold/30 cursor-ew-resize select-none bg-bg-soft"
+              className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-border-gold/30 bg-bg-soft select-none group"
             >
-              {/* Bottom Image (Color Graded - Beautiful, Vibrant) */}
               <img 
                 src="/photo2.jpg.jpg" 
-                alt="Color Graded Portrait of Subhaharini, showcasing professional post-production Rec.709 profile" 
+                alt="Portrait of Subhaharini, Developer and Software Engineer" 
                 width="500"
                 height="625"
-                className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none"
+                className="w-full h-full object-cover object-top hover:scale-[1.04] transition-transform duration-700 ease-out"
               />
-
-              {/* Top Image (Raw Log - Flat, Low Saturation/Contrast) */}
-              <div 
-                className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
-                style={{ clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)` }}
-              >
-                <img 
-                  src="/photo2.jpg.jpg" 
-                  alt="Raw flat log portrait profile of Subhaharini before professional color grading" 
-                  width="500"
-                  height="625"
-                  className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none filter saturate-[0.35] contrast-[0.7] brightness-[1.08] sepia-[0.08]"
-                  style={{ width: containerRef.current?.getBoundingClientRect().width }}
-                />
-              </div>
-
-              {/* Slider Handle Line */}
-              <div 
-                className="absolute top-0 bottom-0 w-[2px] bg-white cursor-ew-resize z-20 shadow-lg"
-                style={{ left: `${sliderPos}%` }}
-              >
-                {/* Drag Handle Bubble */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-espresso text-bg flex items-center justify-center text-xs font-bold font-sans border border-gold shadow-2xl">
-                  ↔
-                </div>
-              </div>
-
-              {/* Badges */}
-              <span className="absolute bottom-4 left-4 z-30 px-3 py-1 text-[0.65rem] font-bold uppercase bg-espresso/80 text-bg rounded-md backdrop-blur">
-                Ungraded Log
-              </span>
-              <span className="absolute bottom-4 right-4 z-30 px-3 py-1 text-[0.65rem] font-bold uppercase bg-gold/90 text-bg rounded-md backdrop-blur">
-                Graded Rec.709
-              </span>
+              {/* Fluent Spotlight Mask */}
+              <div className="absolute inset-0 pointer-events-none bg-radial-gradient from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <p className="text-[0.7rem] text-center text-muted-text italic">
-              Hover or drag to preview color correction profile
-            </p>
           </div>
 
           {/* Right Column: Bio & Info */}
           <div className="flex flex-col text-left">
             <h2 className="font-display text-3xl md:text-5xl font-black text-espresso mb-6">
-              About <span className="font-serif italic font-medium text-gold">Subhaharini</span>
+              {data?.heading || "Java Developer & Full-Stack Web Engineer"}
             </h2>
 
             <p className="font-sans text-sm md:text-base leading-relaxed text-mid-text mb-6">
-              I'm Subhaharini, an innovative and result-driven software developer pursuing B.Sc. Computer Technology at Rathinam Group of Institutions (2024–2027). I'm passionate about building scalable, real-world solutions and actively involved in the design phase, with a keen interest in UI/UX and creating user-centric experiences. Driven by a deep passion for Java, web development, and creative designing, I bring precision and detail to every system I architect, software I build, and video I color grade.
+              {data?.biography || "Loading biography..."}
             </p>
 
             {/* Highlight items */}
@@ -240,6 +179,7 @@ export default function About() {
                   <tr>
                     <td className="p-3 font-semibold text-espresso">Key Projects</td>
                     <td className="p-3">
+                      <a href="#projects" className="underline text-gold-deep dark:text-gold hover:text-gold-mid">SheBloom</a> (Maternal Care App),{" "}
                       <a href="#projects" className="underline text-gold-deep dark:text-gold hover:text-gold-mid">Zentix</a> (Campus Navigation),{" "}
                       <a href="#projects" className="underline text-gold-deep dark:text-gold hover:text-gold-mid">SkipQ</a> (Queue System, 35% time cut)
                     </td>
@@ -262,7 +202,7 @@ export default function About() {
                 className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-gold to-gold-bright text-espresso font-bold text-xs tracking-wider uppercase rounded-full shadow hover:shadow-lg transition-all hover:-translate-y-0.5"
               >
                 <Github className="w-4 h-4" />
-                🐙 GitHub
+                GitHub
               </a>
               <a 
                 href="https://www.linkedin.com/in/subha-hariniofficial" 
@@ -272,28 +212,23 @@ export default function About() {
                 className="inline-flex items-center gap-2 px-6 py-2.5 bg-espresso text-bg dark:bg-espresso dark:text-bg font-bold text-xs tracking-wider uppercase rounded-full border border-espresso hover:shadow-lg transition-all hover:-translate-y-0.5"
               >
                 <Linkedin className="w-4 h-4" />
-                💼 LinkedIn
+                LinkedIn
               </a>
             </div>
 
             {/* Conversational FAQ Accordion (AEO Optimization) */}
             <div className="border-t border-border-soft dark:border-border-theme/40 pt-8">
               <h4 className="font-display font-extrabold text-espresso text-base mb-4 flex items-center gap-2">
-                <span>✦</span> FAQ &amp; Quick Facts (Generative AI Q&amp;A)
+                FAQ &amp; Quick Facts (Generative AI Q&amp;A)
               </h4>
               <div className="flex flex-col gap-3">
-                <FAQItem 
-                  question="What technical stacks and programming languages does Subhaharini use?"
-                  answer="Subhaharini is highly skilled in Core Java (Oracle Certified Associate) and web development technologies. Her stack includes Java, C, HTML/CSS, JavaScript, Next.js, PostgreSQL, Bun.js, and Elysia.js."
-                />
-                <FAQItem 
-                  question="What are some of Subhaharini's award-winning projects?"
-                  answer="Subhaharini has architected Zentix, a real-time smart campus navigation and resource tracking system, and SkipQ, a scalable queue management system that optimized wait times by 35%."
-                />
-                <FAQItem 
-                  question="Has Subhaharini won any hackathons or competitions?"
-                  answer="Yes, she is a state-level hackathon competitor. Her awards include the Special Prize at the TN-IMPACT 2026 Industrial Hackathon, 1st place in AlgoRhythm '26, and Best Manager at Hindustan College."
-                />
+                {(data?.faqs || []).map((faq, i) => (
+                  <FAQItem 
+                    key={i}
+                    question={faq.question}
+                    answer={faq.answer}
+                  />
+                ))}
               </div>
             </div>
 

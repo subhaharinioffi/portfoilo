@@ -13,19 +13,25 @@ Full Stack Java & Web Developer. Winner of the TN-IMPACT 2026 state-level hackat
 ## Technical Stack
 - **Programming Languages**: Java (Certified Foundations), JavaScript, C, HTML5, CSS3
 - **Frameworks & Libraries**: Next.js, React, Bun.js, Elysia.js, PostgreSQL, Tailwind CSS, Framer Motion
-- **Tools & Software**: DaVinci Resolve (Professional Video Color Grading & Post-production), Git, GitHub, VS Code
-- **Soft Skills**: Creative problem solving, quick learner, leadership, teamwork, clear communication
+- **Tools & Software**: Git, GitHub, VS Code
 - **Current Learning & Exploring**: Data Structures and Algorithms (DSA), UI/UX Spatial Design
 
 ## Key Projects
-### 1. Zentix
+### 1. SheBloom
+- **Role**: Creator & Lead Developer
+- **Goal**: Pregnancy & Maternal Care Tracking and Assistant Mobile/Web App for Caretakers
+- **Key Metrics**: 100% Open Source, $0.00 telecom-cost localized Tamil voice call alerts, real-time ESP32 IoT telemetry integration.
+- **Tech Stack**: Next.js (wrapped with Capacitor for native mobile deployment), Bun + Elysia API, Neon PostgreSQL, WebSockets.
+- **Codebase**: [GitHub Repository](https://github.com/subhaharinioffi/SheBloom)
+
+### 2. Zentix
 - **Role**: Lead Architect
 - **Goal**: Smart Campus Management & Resource Tracking System
 - **Key Metrics**: 99.8% location precision and sub-200ms route calculation performance.
 - **Tech Stack**: Full Stack (Java backend, Next.js frontend, routing APIs)
 - **Codebase**: [GitHub Repository](https://github.com/subhaharinioffi/portfoilo)
 
-### 2. SkipQ
+### 3. SkipQ
 - **Role**: Software Developer
 - **Goal**: Smart Queue Management System
 - **Key Metrics**: 35% reduction in customer wait times; handles 500+ simulated parallel requests with zero downtime.
@@ -42,13 +48,11 @@ Full Stack Java & Web Developer. Winner of the TN-IMPACT 2026 state-level hackat
 - **Biz Master (3rd Place)**: Business analytics and case studies at Hindustan College.
 
 ## Experience & Journey
-- **Video Editing & Post-Production Intern (2025)**: professional color grading and video timeline optimization at D Square Entertainers using DaVinci Resolve.
 - **B.Sc. Computer Technology (2024–2027)**: Rathinam Group of Institutions (8.12 CGPA).
 - **Secondary Education**: Corporation Girls Higher Secondary School (HSC: 64.3%, SSLC: 88.4%).
 
 ## Contact & Social Links
 - **Email**: subhahariniofficial@gmail.com
-- **Phone**: +91 97877 24203
 - **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/subha-hariniofficial)
 - **GitHub**: [GitHub Profile](https://github.com/subhaharinioffi)
 - **Portfolio Link**: [Live Portfolio](https://subhaharinioffi.github.io/portfoilo/)

@@ -1,14 +1,49 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 
-export default function Hero({ preset }) {
+export default function Hero({ preset, data }) {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+
+  // Typewriter role animation
+  const roles = data?.roles || ["Full Stack Developer", "UI/UX Designer"];
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  useEffect(() => {
+    let timer;
+    const handleType = () => {
+      const fullText = roles[currentRoleIndex];
+      if (!isDeleting) {
+        setCurrentText(fullText.substring(0, currentText.length + 1));
+        setTypingSpeed(100);
+
+        if (currentText === fullText) {
+          timer = setTimeout(() => setIsDeleting(true), 2000);
+          return;
+        }
+      } else {
+        setCurrentText(fullText.substring(0, currentText.length - 1));
+        setTypingSpeed(50);
+
+        if (currentText === "") {
+          setIsDeleting(false);
+          setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+          setTypingSpeed(500);
+        }
+      }
+    };
+
+    timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentRoleIndex, typingSpeed, roles]);
 
   const handleMouseMove = (e) => {
     const card = e.currentTarget;
@@ -21,7 +56,7 @@ export default function Hero({ preset }) {
 
     // Meta 3D tilt tracking
     if (preset === "meta") {
-      const rx = -(y - box.height / 2) / (box.height / 25); // max 12.5 deg
+      const rx = -(y - box.height / 2) / (box.height / 25);
       const ry = (x - box.width / 2) / (box.width / 25);
       setRotateX(rx);
       setRotateY(ry);
@@ -42,7 +77,6 @@ export default function Hero({ preset }) {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Setup layout variants based on theme presets (Google spring, Apple dock etc)
   const isGoogle = preset === "google";
   
   const textContainerVariants = {
@@ -109,7 +143,7 @@ export default function Hero({ preset }) {
             className="inline-flex items-center gap-2 bg-gold-cream dark:bg-gold-pale/10 border border-border-gold/30 text-gold-deep dark:text-gold-bright px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 w-fit"
           >
             <span className="w-2 h-2 rounded-full bg-green-500 animate-live-pulse" />
-            Open to Opportunities
+            {data?.label || "Open to Opportunities"}
           </motion.div>
 
           {/* Name */}
@@ -117,8 +151,8 @@ export default function Hero({ preset }) {
             variants={itemVariants}
             className="font-display text-[3.2rem] md:text-[5.5rem] font-black leading-[1.05] tracking-tight text-espresso mb-4"
           >
-            <span className="font-serif italic font-medium bg-gradient-to-r from-gold via-gold-mid to-gold-bright bg-clip-text text-transparent">
-              Subhaharini
+            <span className="font-serif italic font-medium shimmer-text">
+              {data?.name || "Subhaharini"}
             </span>
           </motion.h1>
 
@@ -127,9 +161,10 @@ export default function Hero({ preset }) {
             variants={itemVariants}
             className="flex items-center gap-4 mb-8"
           >
-            <div className="w-10 h-[2px] bg-gradient-to-r from-gold to-gold-bright rounded" />
-            <span className="font-display text-sm md:text-base font-bold text-gold-deep dark:text-gold-bright tracking-widest uppercase">
-              Full Stack Developer
+            <div className="w-10 h-[2px] bg-gradient-to-r from-gold to-gold-bright rounded-full" />
+            <span className="font-cursive text-3xl md:text-4xl font-normal text-gold-deep dark:text-gold-bright flex items-center min-h-[3rem] tracking-normal">
+              {currentText}
+              <span className="ml-2.5 w-2 h-2 rounded-full bg-gold-mid dark:bg-gold-bright shadow-[0_0_10px_rgba(205,168,75,0.9)] animate-pulse" />
             </span>
           </motion.div>
 
@@ -142,23 +177,23 @@ export default function Hero({ preset }) {
               onClick={handleScrollToProjects}
               className="px-8 py-3.5 bg-gradient-to-r from-gold via-gold-mid to-gold-bright text-espresso dark:text-espresso font-bold text-sm tracking-wider uppercase rounded-full shadow-gold hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
             >
-              ✦ View My Work
+              View My Work
             </button>
 
             <a 
-              href="/resume.pdf" 
+              href={data?.resumeUrl || "/resume.pdf"} 
               download="Subhaharini_Resume.pdf"
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-espresso text-bg dark:bg-espresso dark:text-bg font-bold text-sm tracking-wider uppercase rounded-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-espresso"
             >
               <Download className="w-4 h-4" />
-              Claim Resume ✦
+              Claim Resume
             </a>
 
             <button 
               onClick={handleScrollToContact}
               className="px-8 py-3.5 bg-transparent text-gold-deep dark:text-gold-bright font-bold text-sm tracking-wider uppercase rounded-full border-2 border-border-gold hover:bg-gold-cream/40 dark:hover:bg-gold-pale/10 hover:-translate-y-1 transition-all duration-300"
             >
-              ✉ Let's Connect
+              Let's Connect
             </button>
           </motion.div>
         </motion.div>

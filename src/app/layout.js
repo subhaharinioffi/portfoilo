@@ -65,7 +65,7 @@ const jsonLd = {
         "https://github.com/subhaharinioffi"
       ],
       "knowsAbout": [
-        "Java", "JavaScript", "HTML", "CSS", "Next.js", "PostgreSQL", "Bun.js", "DaVinci Resolve", "Git", "GitHub", "System Design", "UI/UX Design", "Data Structures and Algorithms"
+        "Java", "JavaScript", "HTML", "CSS", "Next.js", "PostgreSQL", "Bun.js", "Git", "GitHub", "System Design", "UI/UX Design", "Data Structures and Algorithms"
       ],
       "alumniOf": {
         "@type": "EducationalOrganization",

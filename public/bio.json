@@ -23,11 +23,21 @@
     "skills": {
       "languages": ["Java", "C", "HTML", "CSS", "JavaScript"],
       "backend_frameworks": ["Next.js", "Bun.js", "Elysia.js", "PostgreSQL"],
-      "tools_software": ["DaVinci Resolve", "Git", "GitHub", "VS Code"],
-      "soft_skills": ["Problem Solving", "Leadership", "Communication", "Quick Learner"],
+      "tools_software": ["Git", "GitHub", "VS Code"],
       "exploring": ["UI/UX", "Data Structures and Algorithms (DSA)"]
     },
     "projects": [
+      {
+        "name": "SheBloom",
+        "description": "Pregnancy and maternal care tracking mobile/web application featuring real-time ESP32 IoT environmental telemetry and telecom-cost-free localized Tamil voice call alerts.",
+        "metrics": {
+          "open_source": "100%",
+          "telecom_cost": "$0.00",
+          "iot_integration": "ESP32 Sync"
+        },
+        "tags": ["React Native", "Next.js", "Capacitor", "Bun", "Elysia", "Neon Postgres", "WebSockets"],
+        "url": "https://github.com/subhaharinioffi/SheBloom"
+      },
       {
         "name": "Zentix",
         "description": "Smart Campus Management & Resource Tracking System featuring real-time telemetry mapping and route calculation.",
@@ -86,20 +96,9 @@
         "level": "Business analytics case study"
       }
     ],
-    "experience": [
-      {
-        "role": "Video Editing Intern",
-        "company": "D Square Entertainers",
-        "year": "2025",
-        "responsibilities": [
-          "Professional post-production workflows and video timeline editing",
-          "Color grading and correction using DaVinci Resolve"
-        ]
-      }
-    ],
+    "experience": [],
     "contact": {
       "email": "subhahariniofficial@gmail.com",
-      "phone": "+91 97877 24203",
       "github": "https://github.com/subhaharinioffi",
       "linkedin": "https://www.linkedin.com/in/subha-hariniofficial",
       "portfolio": "https://subhaharinioffi.github.io/portfoilo/"

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Copy, Check } from "lucide-react";
+import { Mail, Copy, Check } from "lucide-react";
 
 // Inline SVG components to resolve brand icon imports from older/newer lucide-react versions
 const Github = ({ className, ...props }) => (
@@ -44,22 +44,15 @@ const Linkedin = ({ className, ...props }) => (
   </svg>
 );
 
-export default function Contact() {
+export default function Contact({ preset, data }) {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
+  const emailAddress = data?.email || "subhahariniofficial@gmail.com";
 
   const handleCopyEmail = (e) => {
     e.preventDefault();
-    navigator.clipboard.writeText("subhahariniofficial@gmail.com");
+    navigator.clipboard.writeText(emailAddress);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
-  };
-
-  const handleCopyPhone = (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText("9787724203");
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   const contactLinks = [
@@ -67,7 +60,7 @@ export default function Contact() {
       id: "email",
       label: "Email Me",
       icon: Mail,
-      href: "mailto:subhahariniofficial@gmail.com",
+      href: `mailto:${emailAddress}`,
       hoverClass: "hover:bg-gold-cream dark:hover:bg-gold-pale/10 hover:text-gold-deep border-border-gold/30 hover:border-gold",
       aria: "Send an email to Subhaharini"
     },
@@ -75,7 +68,7 @@ export default function Contact() {
       id: "github",
       label: "GitHub",
       icon: Github,
-      href: "https://github.com/subhaharinioffi",
+      href: data?.github || "https://github.com/subhaharinioffi",
       hoverClass: "hover:bg-espresso hover:text-bg hover:border-espresso",
       aria: "Visit Subhaharini's GitHub profile"
     },
@@ -83,17 +76,9 @@ export default function Contact() {
       id: "linkedin",
       label: "LinkedIn",
       icon: Linkedin,
-      href: "https://www.linkedin.com/in/subha-hariniofficial",
+      href: data?.linkedin || "https://www.linkedin.com/in/subha-hariniofficial",
       hoverClass: "hover:bg-[#0a66c2] hover:text-white hover:border-[#0a66c2]",
       aria: "Visit Subhaharini's LinkedIn profile"
-    },
-    {
-      id: "phone",
-      label: "+91 97877 24203",
-      icon: Phone,
-      href: "tel:9787724203",
-      hoverClass: "hover:bg-gold-cream dark:hover:bg-gold-pale/10 hover:text-gold-deep border-border-gold/30 hover:border-gold",
-      aria: "Call Subhaharini via phone"
     }
   ];
 
@@ -111,7 +96,7 @@ export default function Contact() {
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-1.5 bg-gold-pale/10 border border-border-gold/20 text-gold-bright px-3.5 py-1 rounded-full text-[0.7rem] font-bold uppercase tracking-widest mb-4">
-            ✦ Let's Connect
+            Let's Connect
           </div>
           <h2 className="font-display text-3xl md:text-5xl font-black text-bg">
             Let's <span className="font-serif italic font-medium text-gold">Talk</span>
@@ -125,7 +110,7 @@ export default function Contact() {
 
         {/* Envelope Unfold Card */}
         <div className="max-w-[680px] mx-auto perspective-[1500px]">
-          <div className="relative rounded-3xl overflow-hidden bg-bg-card/5 border border-border-gold/15 shadow-2xl backdrop-blur-md text-left flex flex-col z-10">
+          <div className="relative rounded-3xl overflow-hidden bg-bg-card/5 border border-border-gold/15 shadow-2xl backdrop-blur-md text-center flex flex-col z-10">
             
             {/* Top Envelope Flap */}
             <motion.div 
@@ -142,50 +127,37 @@ export default function Contact() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ type: "spring", stiffness: 100, damping: 18, delay: 0.2 }}
-              className="p-8 md:p-12 bg-espresso/50 rounded-3xl relative z-20"
+              className="p-8 md:p-12 bg-espresso/50 rounded-3xl relative z-20 flex flex-col items-center"
             >
-              <h3 className="font-display font-extrabold text-bg text-xl md:text-2xl mb-4 flex items-center gap-2">
+              <h3 className="font-display font-extrabold text-bg text-xl md:text-2xl mb-4 flex items-center justify-center gap-2">
                 <Mail className="w-6 h-6 text-gold-bright animate-float" />
-                Open to Opportunities ✦
+                Open to Opportunities
               </h3>
-              <p className="text-xs md:text-sm leading-relaxed text-bg-soft/70 mb-8 max-w-lg">
-                Innovative and result-driven software developer ready to contribute to dynamic teams. Whether you want to discuss system design, collaborate on a hackathon, or talk video color grading — let's connect!
+              <p className="text-xs md:text-sm leading-relaxed text-bg-soft/70 mb-8 max-w-lg mx-auto text-center">
+                Innovative and result-driven software developer ready to contribute to dynamic teams. Whether you want to discuss system design, collaborate on a hackathon, or discuss web development — let's connect!
               </p>
 
               {/* Quick Action Copy Widget (CXO Optimization) */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <div className="flex-1 flex items-center justify-between p-3.5 rounded-xl bg-espresso/60 border border-bg-soft/10 text-bg-soft/90 text-xs md:text-sm">
-                  <span className="font-mono text-bg-soft/60">subhahariniofficial@gmail.com</span>
-                  <button
-                    onClick={handleCopyEmail}
-                    className="ml-3 p-2 rounded-lg bg-bg-soft/10 text-gold-mid hover:text-gold-bright hover:bg-bg-soft/20 transition-all active:scale-95 cursor-pointer"
-                    aria-label="Copy email address to clipboard"
-                  >
-                    {copiedEmail ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
-                  </button>
-                </div>
-                
-                <div className="flex-1 flex items-center justify-between p-3.5 rounded-xl bg-espresso/60 border border-bg-soft/10 text-bg-soft/90 text-xs md:text-sm">
-                  <span className="font-mono text-bg-soft/60">+91 97877 24203</span>
-                  <button
-                    onClick={handleCopyPhone}
-                    className="ml-3 p-2 rounded-lg bg-bg-soft/10 text-gold-mid hover:text-gold-bright hover:bg-bg-soft/20 transition-all active:scale-95 cursor-pointer"
-                    aria-label="Copy phone number to clipboard"
-                  >
-                    {copiedPhone ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
-                  </button>
-                </div>
+              <div className="w-full max-w-[450px] mx-auto flex items-center justify-between p-3.5 rounded-xl bg-espresso/60 border border-bg-soft/10 text-bg-soft/90 text-xs md:text-sm mb-8">
+                <span className="font-mono text-bg-soft/60 truncate max-w-[200px] sm:max-w-none">{emailAddress}</span>
+                <button
+                  onClick={handleCopyEmail}
+                  className="ml-3 p-2 rounded-lg bg-bg-soft/10 text-gold-mid hover:text-gold-bright hover:bg-bg-soft/20 transition-all active:scale-95 cursor-pointer"
+                  aria-label="Copy email address to clipboard"
+                >
+                  {copiedEmail ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+                </button>
               </div>
 
               {/* Grid of buttons */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap justify-center gap-3">
                 {contactLinks.map((link) => {
                   const Icon = link.icon;
                   return (
                     <a
                       key={link.id}
                       href={link.href}
-                      target={link.id === "email" || link.id === "phone" ? undefined : "_blank"}
+                      target={link.id === "email" ? undefined : "_blank"}
                       rel="noopener noreferrer"
                       aria-label={link.aria}
                       className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-bg-soft/10 text-bg-soft/90 font-bold text-xs tracking-wider uppercase transition-all duration-300 ${link.hoverClass} hover:-translate-y-1`}
@@ -208,7 +180,7 @@ export default function Contact() {
             © 2026 <span className="bg-gradient-to-r from-gold to-gold-bright bg-clip-text text-transparent font-bold">Subha.Dev</span> — All Rights Reserved
           </div>
           <div className="text-bg-soft/30 font-mono tracking-widest flex items-center gap-1.5">
-            Crafted with <span className="text-red-500">♥</span> &amp; Next.js
+            Crafted with Care &amp; Next.js
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Dock from "@/components/Dock";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
@@ -9,6 +9,7 @@ import Projects from "@/components/Projects";
 import Achievements from "@/components/Achievements";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
+import portfolioData from "@/../public/portfolio-data.json";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
@@ -42,7 +43,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-bg transition-colors duration-300 w-full">
+    <div className="relative min-h-screen bg-bg transition-colors duration-300 w-full font-sans antialiased">
       {/* Scroll Progress Indicator */}
       <div 
         className="fixed top-0 left-0 h-[4px] bg-gradient-to-r from-gold via-gold-mid to-gold-bright z-50 shadow-gold"
@@ -56,8 +57,8 @@ export default function Home() {
       {/* Scroll listener for indicator (SXO improvement) */}
       <ScrollProgressUpdater />
 
-      {/* Floating Glassmorphic Dock */}
-      <Dock 
+      {/* Floating Glassmorphic Header Nav */}
+      <Header 
         activeSection={activeSection} 
         currentPreset={preset} 
         onPresetChange={setPreset} 
@@ -65,13 +66,13 @@ export default function Home() {
 
       {/* Structured Single-Page Sections */}
       <main className="w-full flex flex-col items-center">
-        <Hero preset={preset} />
-        <About preset={preset} />
-        <Skills preset={preset} />
-        <Projects preset={preset} />
-        <Achievements preset={preset} />
-        <Experience preset={preset} />
-        <Contact preset={preset} />
+        <Hero preset={preset} data={portfolioData.hero} />
+        <About preset={preset} data={portfolioData.about} />
+        <Skills preset={preset} data={portfolioData.skills} />
+        <Projects preset={preset} data={portfolioData.projects} />
+        <Achievements preset={preset} data={portfolioData.achievements} />
+        <Experience preset={preset} data={portfolioData.experience} />
+        <Contact preset={preset} data={portfolioData.contact} />
       </main>
     </div>
   );

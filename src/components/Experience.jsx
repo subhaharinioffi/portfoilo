@@ -3,15 +3,8 @@
 import { motion } from "framer-motion";
 import { Award, GraduationCap, Calendar, Compass, Briefcase } from "lucide-react";
 
-export default function Experience() {
-  const experiences = [
-    {
-      type: "work",
-      date: "2025",
-      title: "Video Editing Intern",
-      org: "D Square Entertainers",
-      desc: "Worked on professional video editing and color grading using DaVinci Resolve — hands-on experience in post-production workflows and visual storytelling."
-    },
+export default function Experience({ preset, data }) {
+  const experiences = data?.timeline || [
     {
       type: "edu",
       date: "2024 – 2027",
@@ -28,22 +21,22 @@ export default function Experience() {
     }
   ];
 
-  const certifications = [
+  const certifications = data?.certifications?.map(c => ({ ...c, icon: Award })) || [
     {
       title: "Oracle Java Foundations",
       issuer: "Oracle — 2026",
       icon: Award
     },
     {
-      title: "More Coming Soon",
-      issuer: "Always Learning...",
-      icon: Compass
+      title: "Google Skills Arcade (Level 3)",
+      issuer: "Google — 2025",
+      icon: Award
     }
   ];
 
-  const funFacts = [
+  const funFacts = data?.funFacts || [
     "Passionate about UI/UX design & creative interfaces",
-    "Professionally trained in video color grading with DaVinci Resolve",
+    "Actively building database schemas and optimizing API route latency",
     "Active hackathon competitor & experienced team leader",
     "Committed to driving measurable impact through modern software"
   ];
@@ -57,7 +50,7 @@ export default function Experience() {
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-1.5 bg-gold-cream dark:bg-gold-pale/10 border border-border-gold/30 text-gold-deep dark:text-gold-bright px-3.5 py-1 rounded-full text-[0.7rem] font-bold uppercase tracking-widest mb-4">
-            ✦ Journey
+            Journey
           </div>
           <h2 className="font-display text-3xl md:text-5xl font-black text-espresso">
             Experience &amp; <span className="font-serif italic font-medium text-gold">Education</span>
@@ -81,7 +74,7 @@ export default function Experience() {
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="absolute left-[19px] md:left-[23px] top-6 bottom-6 w-[2.5px] bg-gradient-to-b from-gold via-gold-light to-transparent origin-top -z-10"
+              className="absolute left-[19px] md:left-[23px] top-6 bottom-6 w-[2.5px] animate-flow-line origin-top -z-10"
             />
 
             <div className="flex flex-col gap-10 text-left">

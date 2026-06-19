@@ -1,0 +1,239 @@
+{
+  "hero": {
+    "label": "Open to Opportunities",
+    "name": "Subhaharini",
+    "roles": [
+      "Full Stack Developer",
+      "UI/UX Designer"
+    ],
+    "resumeUrl": "/resume.pdf"
+  },
+  "about": {
+    "subheading": "Systems Builder & Developer",
+    "title": "Engineering Clean Interfaces",
+    "heading": "Java Developer & Full-Stack Web Engineer",
+    "biography": "I'm Subhaharini, an innovative and result-driven software developer pursuing B.Sc. Computer Technology at Rathinam Group of Institutions (2024–2027). I'm passionate about building scalable, real-world solutions and actively involved in the design phase, with a keen interest in UI/UX and creating user-centric experiences. Driven by a deep passion for Java, web development, and software architecture, I bring precision and detail to every system I architect and software application I build.",
+    "faqs": [
+      {
+        "question": "What technical stacks and programming languages does Subhaharini use?",
+        "answer": "Subhaharini is highly skilled in Core Java (Oracle Certified Associate) and web development technologies. Her stack includes Java, C, HTML/CSS, JavaScript, Next.js, PostgreSQL, Bun.js, and Elysia.js."
+      },
+      {
+        "question": "What are some of Subhaharini's award-winning projects?",
+        "answer": "Subhaharini has architected Zentix, a real-time smart campus navigation and resource tracking system, and SkipQ, a scalable queue management system that optimized wait times by 35%."
+      },
+      {
+        "question": "Has Subhaharini won any hackathons or competitions?",
+        "answer": "Yes, she is a state-level hackathon competitor. Her awards include the Special Prize at the TN-IMPACT 2026 Industrial Hackathon, 1st place in AlgoRhythm '26, and Best Manager at Hindustan College."
+      }
+    ]
+  },
+  "skills": {
+    "categories": [
+      {
+        "title": "Languages",
+        "iconName": "Code2",
+        "chips": [
+          "Java",
+          "C",
+          "HTML & CSS",
+          "JavaScript"
+        ]
+      },
+      {
+        "title": "Frameworks & Backend",
+        "iconName": "Layers",
+        "chips": [
+          "Next.js",
+          "Bun.js",
+          "Elysia.js",
+          "PostgreSQL"
+        ]
+      },
+      {
+        "title": "Tools & Software",
+        "iconName": "Cpu",
+        "chips": [
+          "Git & GitHub",
+          "VS Code",
+          "Antigravity"
+        ]
+      },
+      {
+        "title": "Certifications",
+        "iconName": "CheckCircle2",
+        "chips": [
+          "Oracle Java Foundations"
+        ]
+      },
+      {
+        "title": "Currently Exploring",
+        "iconName": "Navigation",
+        "chips": [
+          "UI/UX",
+          "DSA"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "items": [
+      {
+        "name": "SheBloom",
+        "category": "Mobile Native & IoT Web App",
+        "desc": "Capacitor-wrapped Next.js pregnancy and maternal care tracking and assistant app for caretakers. Features Bun + Elysia API, Neon PostgreSQL DB, real-time ESP32 IoT environmental telemetrics over WebSockets, and zero-telecom cost localized Tamil audio care alerts.",
+        "metrics": [
+          "100% Open Source",
+          "$0.00 Call Alerts",
+          "ESP32 IoT Sync"
+        ],
+        "github": "https://github.com/subhaharinioffi/SheBloom",
+        "live": null
+      },
+      {
+        "name": "Zentix",
+        "category": "Smart Campus Navigation",
+        "desc": "Real-time campus mapping and spatial tracking system that resolves routing and location checks. Built to support sub-200ms latency metrics.",
+        "metrics": [
+          "99.8% precision",
+          "<200ms routing latency",
+          "Real-time telemetry"
+        ],
+        "github": "https://github.com/subhaharinioffi/portfoilo",
+        "live": null
+      },
+      {
+        "name": "SkipQ",
+        "category": "Smart Retail Queue",
+        "desc": "High-concurrency queue optimization system designed to manage and reduce customer wait times. Handled simulated parallel client request bounds.",
+        "metrics": [
+          "35% wait time reduction",
+          "500+ parallel requests",
+          "0% packet drops"
+        ],
+        "github": "https://github.com/subhaharinioffi/portfoilo",
+        "live": null
+      }
+    ]
+  },
+  "achievements": {
+    "awards": [
+      {
+        "title": "TN-IMPACT 2026",
+        "tag": "Special Prize",
+        "desc": "Industrial Hackathon — State Level",
+        "img": "/TN impact.jpg.JPG",
+        "hasImage": true
+      },
+      {
+        "title": "Queenathon",
+        "tag": "Viral Visionary",
+        "desc": "Dhaanish iTech College",
+        "img": "/Queenathon.jpg.jpeg",
+        "hasImage": true
+      },
+      {
+        "title": "AlgoRhythm '26",
+        "tag": "Winner",
+        "desc": "KPR College of Arts and Science",
+        "img": "/AlgoRhythm.jpg.jpeg",
+        "hasImage": true
+      },
+      {
+        "title": "Ideathon",
+        "tag": "Winner",
+        "desc": "SNS College of Technology",
+        "img": null,
+        "hasImage": false
+      },
+      {
+        "title": "AI Blitz",
+        "tag": "Winner",
+        "desc": "SNS College of Technology",
+        "img": null,
+        "hasImage": false
+      },
+      {
+        "title": "Spyder '26",
+        "tag": "Winner",
+        "desc": "Hindustan College of Arts & Science",
+        "img": "/Spyder.jpg.jpeg",
+        "hasImage": true
+      },
+      {
+        "title": "Best Manager",
+        "tag": "Winner",
+        "desc": "Hindustan College of Arts & Science",
+        "img": "/Best Manage.jpg.jpeg",
+        "hasImage": true
+      },
+      {
+        "title": "Minute Blaze",
+        "tag": "Winner",
+        "desc": "Kovai Kalaimagal College",
+        "img": "/minute blaze.jpg.jpeg",
+        "hasImage": true
+      },
+      {
+        "title": "Biz Master",
+        "tag": "3rd Place",
+        "desc": "Hindustan College of Arts & Science",
+        "img": "/Biz Master.jpg.jpeg",
+        "hasImage": true
+      },
+      {
+        "title": "Onest Hackathon",
+        "tag": "Participant",
+        "desc": "AIC Raise",
+        "img": "/Onest Hackathon.jpg.jpg",
+        "hasImage": true
+      },
+      {
+        "title": "Hackasthra",
+        "tag": "Participant",
+        "desc": "SNS College of Technology",
+        "img": "/Hackasthra.jpg.jpeg",
+        "hasImage": true
+      }
+    ]
+  },
+  "experience": {
+    "timeline": [
+      {
+        "type": "edu",
+        "date": "2024 – 2027",
+        "title": "B.Sc. Computer Technology",
+        "org": "Rathinam Group of Institutions",
+        "desc": "Pursuing degree with a current academic record of 8.12 CGPA."
+      },
+      {
+        "type": "edu",
+        "date": "Secondary Education",
+        "title": "HSC & SSLC",
+        "org": "Corporation Girls Higher Secondary School",
+        "desc": "Completed HSC with 64.3% and SSLC with 88.4%."
+      }
+    ],
+    "certifications": [
+      {
+        "title": "Oracle Java Foundations",
+        "issuer": "Oracle — 2026"
+      },
+      {
+        "title": "Google Skills Arcade (Level 3)",
+        "issuer": "Google — 2025"
+      }
+    ],
+    "funFacts": [
+      "Passionate about UI/UX design & creative interfaces",
+      "Actively building database schemas and optimizing API route latency",
+      "Active hackathon competitor & experienced team leader",
+      "Committed to driving measurable impact through modern software"
+    ]
+  },
+  "contact": {
+    "email": "subhahariniofficial@gmail.com",
+    "github": "https://github.com/subhaharinioffi",
+    "linkedin": "https://www.linkedin.com/in/subha-hariniofficial"
+  }
+}
